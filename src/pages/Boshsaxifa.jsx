@@ -19,7 +19,7 @@ function Boshsaxifa() {
   const [activeFilter, setActiveFilter] = useState("barchasi");
   const [userName, setUserName] = useState("mehmon");
 
-  // Foydalanuvchi nomini olish
+  // Foydalanuvchi nomini olish localStorage'dan
   useEffect(() => {
     const userDataStr = localStorage.getItem('userData');
     if (userDataStr) {
