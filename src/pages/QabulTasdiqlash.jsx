@@ -204,7 +204,7 @@ function QabulTasdiqlash() {
           </div>
         </div>
 
-        {/* Qabul tafsilotlari - QAYSI SANAGA VA QAYSI VAQTGA YOZILGANI */}
+        {/* Qabul tafsilotlari - QAYSI SANAGA VA QAYSI vaqtga yozilgan */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8 border border-gray-100">
           <h2 className="text-xl font-bold text-gray-800 mb-6">Qabul tafsilotlari</h2>
 
@@ -266,7 +266,7 @@ function QabulTasdiqlash() {
           {comment && (
             <div className="mb-4">
               <h3 className="text-lg font-semibold text-gray-700 mb-4">Qo'shimcha izoh:</h3>
-              <div className="bg-gray-50 rounded-xl p-4 border-l-4 border-[#00CEEE]">
+              <div className="bg-gray-50 rounded-xl p-4 border-l-4 border-[#00CEEE] whitespace-pre-wrap break-words">
                 <p className="text-gray-800">{comment}</p>
               </div>
             </div>

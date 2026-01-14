@@ -72,7 +72,7 @@ function Boshsaxifa() {
     };
   }, []);
 
-  // Endi faqat bitta sahifa yuklaymiz (limit=100 yoki serverdan qancha qaytsa)
+  // Endi faqat bitta sahifa yuklaymiz (limit=100 yoki serverdan qancha qaytsa) shuning uchun pagination kerak emas
   const fetchDoctors = useCallback(async () => {
     try {
       setLoading(true);
