@@ -8,27 +8,19 @@ function QabulgaYozilishVaqt() {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Oldingi sahifadan kelgan ma'lumotlar
   const {
     doctorId,
     doctor,
-    appointmentDate, // ISO formatda (masalan: "2026-01-15T00:00:00.000Z")
+    appointmentDate,
     selectedDay,
     selectedMonth: selectedMonthName,
     selectedYear
   } = location.state || {};
 
-  const [selectedTime, setSelectedTime] = useState(null);
+  // type="time" uchun format odatda "HH:mm" bo'ladi
+  const [selectedTime, setSelectedTime] = useState("");
   const [note, setNote] = useState('');
 
-  // Mavjud vaqtlar (sizniki yaxshi)
-  const times = [
-    '09:00', '10:00', '11:00', '12:00',
-    '14:00', '15:00', '16:00', '17:00',
-    '18:00', '19:00'
-  ];
-
-  // Xavfsizlik: agar kerakli ma'lumotlar yo'q bo'lsa
   if (!doctor || !doctorId || !appointmentDate) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center p-5">
@@ -47,16 +39,16 @@ function QabulgaYozilishVaqt() {
     );
   }
 
-  // Sana + vaqtni birlashtirib, to'liq ISO datetime yaratish
+  // type="time" dan kelgan qiymat "HH:mm" formatida bo'ladi
   const getFullAppointmentDateTime = () => {
     if (!selectedTime) return null;
 
-    const baseDate = new Date(appointmentDate); // Oldingi sahifadan kelgan ISO sana
-    const [hours, minutes] = selectedTime.split(':');
+    const baseDate = new Date(appointmentDate);
+    const [hours, minutes] = selectedTime.split(":").map(Number);
 
-    baseDate.setHours(parseInt(hours), parseInt(minutes), 0, 0);
+    baseDate.setHours(hours, minutes, 0, 0);
 
-    return baseDate.toISOString(); // Masalan: "2026-01-15T10:00:00.000Z"
+    return baseDate.toISOString();
   };
 
   const handleNext = () => {
@@ -67,13 +59,12 @@ function QabulgaYozilishVaqt() {
 
     const fullDateTime = getFullAppointmentDateTime();
 
-    // Keyingi sahifaga (bemor ma'lumotlari formasi) o'tish
     navigate("/patient-form", {
       state: {
-        doctorId: doctorId,
-        doctor: doctor,
-        appointmentDate: fullDateTime,     // To'liq ISO datetime (API uchun)
-        appointmentTime: selectedTime,     // Faqat vaqt (ko'rsatish uchun)
+        doctorId,
+        doctor,
+        appointmentDate: fullDateTime,
+        appointmentTime: selectedTime,
         note: note.trim(),
         selectedDay,
         selectedMonthName,
@@ -99,7 +90,6 @@ function QabulgaYozilishVaqt() {
       <div className="p-5 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
 
-          {/* Chap qism: Shifokor va vaqt tanlash */}
           <div className="lg:col-span-2 space-y-8">
 
             {/* Shifokor kartasi */}
@@ -153,34 +143,37 @@ function QabulgaYozilishVaqt() {
               </div>
             </div>
 
-            {/* Vaqt tanlash */}
+            {/* Vaqt tanlash - type="time" */}
             <div>
-              <h2 className="text-2xl font-bold mb-5 text-gray-800">Mavjud vaqtlar</h2>
-              <div className="grid grid-cols-3 sm:grid-cols-4 gap-4">
-                {times.map((time) => (
-                  <button
-                    key={time}
-                    onClick={() => setSelectedTime(time)}
-                    className={`
-                      py-4 rounded-2xl font-semibold text-lg transition-all shadow-md
-                      ${selectedTime === time
-                        ? "bg-cyan-500 text-white scale-105 ring-4 ring-cyan-200"
-                        : "bg-white text-gray-800 hover:bg-cyan-50 border-2 border-gray-200 hover:border-cyan-300"
-                      }
-                    `}
-                  >
-                    {time}
-                  </button>
-                ))}
+              <h2 className="text-2xl font-bold mb-5 text-gray-800">Qabul vaqti</h2>
+
+              <div className="bg-white rounded-2xl shadow-lg p-6">
+                <label className="block text-gray-700 font-medium mb-3">
+                  Vaqtni tanlang
+                </label>
+
+                <div className="relative">
+                  <input
+                    type="time"
+                    value={selectedTime}
+                    onChange={(e) => setSelectedTime(e.target.value)}
+                    className="
+                      w-full p-4 text-xl font-medium border-2 border-gray-200 rounded-xl
+                      focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent
+                    "
+                  />
+                  <IoTime className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-2xl pointer-events-none" />
+                </div>
+
+                <p className="text-sm text-gray-500 mt-4 flex items-center gap-2">
+                  <IoTime className="text-cyan-600" />
+                  Qabulga 15 daqiqa oldin kelishingizni tavsiya qilamiz
+                </p>
               </div>
-              <p className="text-sm text-gray-500 mt-5 flex items-center gap-2">
-                <IoTime className="text-cyan-600" />
-                Qabulga 15 daqiqa oldin kelishingizni tavsiya qilamiz
-              </p>
             </div>
           </div>
 
-          {/* O'ng qism: Izoh va tanlangan ma'lumotlar */}
+          {/* O'ng qism */}
           <div className="space-y-6">
             <div>
               <h2 className="text-xl font-bold mb-4 text-gray-800">Qo'shimcha izoh</h2>
@@ -194,7 +187,6 @@ function QabulgaYozilishVaqt() {
               <p className="text-xs text-gray-500 mt-2">Izoh ixtiyoriy, lekin shifokorga yordam beradi</p>
             </div>
 
-            {/* Tanlangan ma'lumotlar */}
             <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-2xl p-6 border border-cyan-200">
               <h3 className="font-bold text-cyan-800 mb-4">Tanlangan ma'lumotlar</h3>
 
@@ -230,7 +222,6 @@ function QabulgaYozilishVaqt() {
               </div>
             </div>
 
-            {/* Tugmalar */}
             <div className="space-y-3">
               <button
                 onClick={() => navigate(-1)}
@@ -259,4 +250,4 @@ function QabulgaYozilishVaqt() {
   );
 }
 
-export default QabulgaYozilishVaqt;
+export default QabulgaYozilishVaqt; 

@@ -45,24 +45,6 @@ function Shifokorlarim() {
         }
 
         setDoctor(result.data);
-
-        // Test review'lar (keyinchalik real API'dan olinadi)
-        setReviews([
-          {
-            id: 1,
-            name: "Javohir Rahimov",
-            timeAgo: "2 kun avval",
-            stars: 5,
-            text: "Tishlarni oqartirish uchun qabulga yozilgan edim. Menga xizmat juda yoqdi. Ajoyib natija! Tavsiya qilaman.",
-          },
-          {
-            id: 2,
-            name: "Bahodirova Muattar",
-            timeAgo: "3 kun avval",
-            stars: 4,
-            text: "Juda zo'r shifokor! Profesional yondashuvdan mamnunman. Xizmat sifati yuqori.",
-          },
-        ]);
       } catch (err) {
         console.error("API xatosi:", err);
         setError(err.message);
@@ -108,8 +90,16 @@ function Shifokorlarim() {
     navigate(`/chat/${id}`, { state: { doctorName: doctor?.fullName } });
   };
 
+  // TO'G'RILANGAN TELEFON FUNKSIYASI
   const handleCall = () => {
-    window.open(`tel:+998901234567`, "_blank");
+    // API dan kelayotgan raqamni tekshirish (phone yoki phoneNumber bo'lishi mumkin)
+    const phoneNumber = doctor?.phone || doctor?.phoneNumber;
+
+    if (phoneNumber) {
+      window.location.href = `tel:${phoneNumber}`;
+    } else {
+      alert("Shifokorning telefon raqami topilmadi");
+    }
   };
 
   if (loading) {
@@ -190,7 +180,7 @@ function Shifokorlarim() {
               className="w-32 h-32 md:w-40 md:h-40 rounded-2xl border-4 border-white object-cover shadow-lg"
               onError={(e) => {
                 e.target.onerror = null;
-                e.target.src = " ";
+                e.target.src = "https://via.placeholder.com/150";
               }}
             />
           </div>
@@ -339,7 +329,7 @@ function Shifokorlarim() {
       </div>
 
       {/* Pastki fixed menyusi */}
-      <div className="px-5 md:px-8 lg:px-10 py-3 w-full mt-5 bg-white fixed bottom-[70px] left-0 flex items-center justify-between shadow-2xl border-t border-gray-100">
+      <div className="px-5 md:px-8 lg:px-10 py-3 w-full mt-5 bg-white fixed bottom-[70px] left-0 flex items-center justify-between shadow-2xl border-t border-gray-100 z-50">
         {isAuthenticated ? (
           <button
             onClick={handleQabul}
@@ -356,10 +346,10 @@ function Shifokorlarim() {
           </button>
         )}
 
-        {/* Telefon tugmasi (mehmon rejimida ham qoldirilgan) */}
+        {/* Telefon tugmasi */}
         <button
           onClick={handleCall}
-          className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#00cf56] flex items-center justify-center ml-3 cursor-pointer hover:opacity-80 transition"
+          className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-[#00cf56] flex items-center justify-center ml-3 cursor-pointer hover:bg-[#00b34a] transition shadow-lg"
         >
           <LuPhone className="text-2xl md:text-3xl text-white" />
         </button>

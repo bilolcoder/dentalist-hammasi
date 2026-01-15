@@ -169,14 +169,14 @@ function Boshsaxifa() {
     <div className="w-full mx-auto bg-white mb-[60px] overflow-hidden">
       {/* Header */}
       <div className="bg-[#00C1F3] md:px-10 xl:px-[100px] lg:px-[70px] p-5 rounded-b-[30px] relative">
-        <div className="flex justify-between items-center">
+        {/* <div className="flex justify-between items-center">
           <button onClick={goToChats} className="relative text-white hover:opacity-80 transition">
             <HiOutlineChatAlt2 className="text-3xl" />
             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
               0
             </span>
           </button>
-        </div>
+        </div> */}
 
         <div className="text-white mt-8">
           <h1 className="text-lg md:text-2xl font-semibold flex items-center gap-1">
@@ -280,7 +280,7 @@ function Boshsaxifa() {
         )}
 
         {loading ? (
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 max-sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-1 max-sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
               <div key={i} className="bg-gray-100 rounded-2xl overflow-hidden animate-pulse">
                 <div className="w-full h-[120px] bg-gray-300"></div>
@@ -293,7 +293,7 @@ function Boshsaxifa() {
             ))}
           </div>
         ) : displayedDoctors.length > 0 ? (
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 max-sm:grid-cols-1 md:grid-cols-4 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 max-sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {displayedDoctors.map(doctor => (
               <DoctorCard
                 key={doctor.id}
