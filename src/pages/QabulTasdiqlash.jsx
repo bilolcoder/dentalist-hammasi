@@ -144,13 +144,13 @@ function QabulTasdiqlash() {
                 <h3 className="text-2xl font-bold mb-2">{doctor?.fullName || "Shifokor"}</h3>
                 <p className="text-lg opacity-90 mb-4">{doctor?.specialty || "Mutaxassislik"}</p>
 
-                {doctor?.rating && (
+                {/* {doctor?.rating && (
                   <div className="flex items-center justify-center gap-2 bg-white/20 rounded-full px-4 py-2 mb-4">
                     <IoStar className="text-yellow-300" />
                     <span className="font-bold">{doctor.rating}</span>
                     <span className="text-sm">reyting</span>
                   </div>
-                )}
+                )} */}
 
                 <div className="flex items-center justify-center gap-2 text-sm">
                   <IoLocationOutline />
@@ -175,7 +175,7 @@ function QabulTasdiqlash() {
               )}
 
               {/* Qo'shimcha stats */}
-              <div className="grid grid-cols-2 gap-4 mb-6">
+              <div className="grid grid-cols-1 gap-4 mb-6">
                 {doctor?.experienceYears && (
                   <div className="bg-gray-50 rounded-xl p-4 text-center">
                     <div className="text-2xl font-bold text-[#00CEEE] mb-1">{doctor.experienceYears}</div>
@@ -183,12 +183,12 @@ function QabulTasdiqlash() {
                   </div>
                 )}
 
-                {doctor?.patientsCount && (
+                {/* {doctor?.patientsCount && (
                   <div className="bg-gray-50 rounded-xl p-4 text-center">
                     <div className="text-2xl font-bold text-[#00CEEE] mb-1">{doctor.patientsCount}</div>
                     <div className="text-sm text-gray-600">bemor</div>
                   </div>
-                )}
+                )} */}
               </div>
 
               {/* Narx */}

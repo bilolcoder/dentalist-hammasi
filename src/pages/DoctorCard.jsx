@@ -25,14 +25,14 @@ function DoctorCard({ id, img, name, job, rating, distance, price, patients, exp
         <div className="absolute bottom-0 left-0 w-full h-[55px] bg-gradient-to-t from-[#00A7D7] to-transparent opacity-80"></div>
 
         {/* Rating + distance */}
-        <div className="absolute bottom-2 left-2 flex items-center gap-3 text-white text-[12px]">
+        {/* <div className="absolute bottom-2 left-2 flex items-center gap-3 text-white text-[12px]">
           <span className="flex items-center gap-1 bg-black/30 px-2 py-1 rounded-full">
             ⭐ {rating}
           </span>
           <span className="flex items-center gap-1 bg-black/30 px-2 py-1 rounded-full">
             <HiOutlineLocationMarker /> {distance}
           </span>
-        </div>
+        </div> */}
 
         {/* 24/7 badge */}
         {service && (
@@ -49,7 +49,7 @@ function DoctorCard({ id, img, name, job, rating, distance, price, patients, exp
 
         <div className="flex items-center justify-between mt-3 text-[12px] text-gray-600">
           <div>
-            <span className="block">{patients} ta bemor</span>
+            {/* <span className="block">{patients} ta bemor</span> */}
             <span className="block">{exp} yil tajriba</span>
           </div>
         </div>

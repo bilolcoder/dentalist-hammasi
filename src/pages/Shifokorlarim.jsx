@@ -190,10 +190,10 @@ function Shifokorlarim() {
 
             <div className="flex flex-wrap items-center gap-3 mb-3">
               <span className="text-lg md:text-xl opacity-90">{doctor.specialty}</span>
-              <div className="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full">
+              {/* <div className="flex items-center gap-1 bg-white/20 px-3 py-1 rounded-full">
                 <FaStar className="text-yellow-300" />
                 <span className="font-semibold">{doctor.rating || "4.5"}</span>
-              </div>
+              </div> */}
             </div>
 
             {doctor.clinic?.name && <p className="text-lg opacity-80">{doctor.clinic.name}</p>}
@@ -203,14 +203,14 @@ function Shifokorlarim() {
 
       {/* Statistikalar */}
       <div className="bg-white mx-5 md:mx-10 -mt-4 rounded-2xl shadow-lg p-5 border border-gray-100">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="text-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {/* <div className="text-center">
             <div className="flex items-center justify-center gap-2 mb-1">
               <PiUsersThreeLight className="text-2xl text-blue-500" />
               <span className="text-lg font-semibold text-gray-800">{doctor.patientsCount || "0"}</span>
             </div>
             <p className="text-sm text-gray-600">Bemorlar</p>
-          </div>
+          </div> */}
 
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 mb-1">
@@ -248,9 +248,9 @@ function Shifokorlarim() {
             <div>
               <h3 className="font-semibold text-gray-800 mb-1">Manzil</h3>
               <p className="text-gray-600">{doctor.clinic.address}</p>
-              {doctor.clinic.distanceKm && (
+              {/* {doctor.clinic.distanceKm && (
                 <p className="text-sm text-gray-500 mt-1">Masofa: {doctor.clinic.distanceKm} km</p>
-              )}
+              )} */}
             </div>
           </div>
         )}

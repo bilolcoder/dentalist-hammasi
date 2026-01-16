@@ -115,18 +115,18 @@ function QabulgaYozilishVaqt() {
                   <p className="text-gray-600 text-lg mt-1">{doctor.specialty}</p>
 
                   <div className="flex items-center gap-3 mt-4">
-                    <div className="flex items-center gap-1 bg-yellow-50 px-3 py-1 rounded-full">
+                    {/* <div className="flex items-center gap-1 bg-yellow-50 px-3 py-1 rounded-full">
                       <FaStar className="text-yellow-500" />
                       <span className="font-semibold">{doctor.rating || "4.5"}</span>
-                    </div>
+                    </div> */}
                     <span className="text-gray-500">{doctor.clinic?.name || "Klinika"}</span>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4 mt-5 text-gray-700">
-                    <div>
+                  <div className="grid grid-cols-1 gap-4 mt-5 text-gray-700">
+                    {/* <div>
                       <p className="text-sm text-gray-500">Bemorlar soni</p>
                       <p className="font-semibold">{doctor.patientsCount || 0} ta</p>
-                    </div>
+                    </div> */}
                     <div>
                       <p className="text-sm text-gray-500">Tajriba</p>
                       <p className="font-semibold">{doctor.experienceYears || 0}+ yil</p>
@@ -162,7 +162,7 @@ function QabulgaYozilishVaqt() {
                       focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent
                     "
                   />
-                  <IoTime className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-2xl pointer-events-none" />
+                  {/* <IoTime className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-2xl pointer-events-none" /> */}
                 </div>
 
                 <p className="text-sm text-gray-500 mt-4 flex items-center gap-2">

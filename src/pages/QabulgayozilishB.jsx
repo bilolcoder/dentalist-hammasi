@@ -132,8 +132,8 @@ function QabulgaYozilishDate() {
               <h3 className="font-bold text-lg">{doctor.fullName}</h3>
               <p className="text-gray-600 text-base">{doctor.specialty}</p>
               <div className="text-sm text-gray-500 mt-2 space-y-1">
-                <p>{doctor.patientsCount || 0} ta bemor</p>
-                <p>{doctor.experienceYears || 0}+ yil tajriba</p>
+                {/* <p>{doctor.patientsCount || 0} ta bemor</p> */}
+                <p>{doctor.experienceYears }+ yil tajriba</p>
               </div>
               {doctor.price && (
                 <p className="font-semibold text-cyan-600 mt-2">

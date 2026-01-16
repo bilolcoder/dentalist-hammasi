@@ -219,43 +219,30 @@ function PatientForm() {
               </div>
             </div>
 
-            <div className="flex w-full gap-4 max-sm:flex-col">
-              {/* Email */}
-              <div className="w-[49%] max-sm:w-full">
-                <label className="block text-gray-700 font-semibold mb-2">Email (ixtiyoriy)</label>
-                <input
-                  type="email"
-                  {...register("email")}
-                  placeholder="misol@mail.uz"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
-                />
-              </div>
-
-              {/* Xizmat turi */}
-              <div className="w-[49%] max-sm:w-full">
-                <label className="block text-gray-700 font-semibold mb-2">
-                  Kerakli xizmat <span className="text-red-500">*</span>
-                </label>
-                <select
-                  {...register("service", { required: "Xizmat turini tanlang" })}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
-                >
-                  <option value="">— Tanlang —</option>
-                  <option value="Консультация">Konsultatsiya</option>
-                  <option value="Терапевтическое лечение">Terapevtik davolash</option>
-                  <option value="Лечение зубов">Tish davolash</option>
-                  <option value="Отбеливание зубов">Tish oqartirish</option>
-                  <option value="Удаление зубов">Tishni olib tashlash</option>
-                  <option value="Имплантация зубов">Tish implantatsiyasi</option>
-                  <option value="Протезирование зубов">Tish protezlash</option>
-                  <option value="Чистка зубов">Tishlarni tozalash</option>
-                  <option value="Пломбирование зубов">Plomba qo'yish</option>
-                  <option value="Диагностика">Diagnostika</option>
-                </select>
-                {errors.service && (
-                  <p className="text-red-500 text-sm mt-1">{errors.service.message}</p>
-                )}
-              </div>
+            {/* Xizmat turi - Endi to'liq qatorda */}
+            <div className="w-full">
+              <label className="block text-gray-700 font-semibold mb-2">
+                Kerakli xizmat <span className="text-red-500">*</span>
+              </label>
+              <select
+                {...register("service", { required: "Xizmat turini tanlang" })}
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition"
+              >
+                <option value="">— Tanlang —</option>
+                <option value="Консультация">Konsultatsiya</option>
+                <option value="Терапевтическое лечение">Terapevtik davolash</option>
+                <option value="Лечение зубов">Tish davolash</option>
+                <option value="Отбеливание зубов">Tish oqartirish</option>
+                <option value="Удаление зубов">Tishni olib tashlash</option>
+                <option value="Имплантация зубов">Tish implantatsiyasi</option>
+                <option value="Протезирование зубов">Tish protezlash</option>
+                <option value="Чистка зубов">Tishlarni tozalash</option>
+                <option value="Пломбирование зубов">Plomba qo'yish</option>
+                <option value="Диагностика">Diagnostika</option>
+              </select>
+              {errors.service && (
+                <p className="text-red-500 text-sm mt-1">{errors.service.message}</p>
+              )}
             </div>
 
             {/* Izoh */}

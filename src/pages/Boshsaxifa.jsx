@@ -167,7 +167,7 @@ function Boshsaxifa() {
 
   return (
     <div className="w-full mx-auto bg-white mb-[60px] overflow-hidden">
-      {/* Header */}
+      {/* Header qismi */}
       <div className="bg-[#00C1F3] md:px-10 xl:px-[100px] lg:px-[70px] p-5 rounded-b-[30px] relative">
         {/* <div className="flex justify-between items-center">
           <button onClick={goToChats} className="relative text-white hover:opacity-80 transition">
