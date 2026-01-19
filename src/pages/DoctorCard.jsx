@@ -12,9 +12,9 @@ function DoctorCard({ id, img, name, job, rating, distance, price, patients, exp
 
   return (
     <div className="w-full bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-      
+
       {/* Image */}
-      <div className="relative w-full h-[180px] rounded-[20px] overflow-hidden">
+      <div className="relative w-full h-[300px] rounded-[20px] overflow-hidden">
         <img
           src={img}
           className="w-full h-full object-cover"
@@ -27,7 +27,7 @@ function DoctorCard({ id, img, name, job, rating, distance, price, patients, exp
         {/* Rating + distance */}
         {/* <div className="absolute bottom-2 left-2 flex items-center gap-3 text-white text-[12px]">
           <span className="flex items-center gap-1 bg-black/30 px-2 py-1 rounded-full">
-            ⭐ {rating}
+            ⭐️ {rating}
           </span>
           <span className="flex items-center gap-1 bg-black/30 px-2 py-1 rounded-full">
             <HiOutlineLocationMarker /> {distance}
