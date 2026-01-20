@@ -14,7 +14,7 @@ function DoctorCard({ id, img, name, job, rating, distance, price, patients, exp
     <div className="w-full bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
 
       {/* Image */}
-      <div className="relative w-full h-[300px] rounded-[20px] overflow-hidden">
+      <div className="relative w-full h-[400px] rounded-[20px] overflow-hidden">
         <img
           src={img}
           className="w-full h-full object-cover"
